@@ -1,4 +1,4 @@
-insert into "inquiry_author" (member_id, username, created_at, updated_at) values
+insert into `inquiry_author` (member_id, username, created_at, updated_at) values
 	(1, 'super', now(), now()),
 	(2, 'admin1', now(), now()),
 	(3, 'admin2', now(), now()),
@@ -9,7 +9,7 @@ insert into "inquiry_author" (member_id, username, created_at, updated_at) value
 	(8, 'member4', now(), now()),
 	(9, 'member5', now(), now());
 
-insert into "inquiry" (inquiry_id, member_id, title, content, is_secret, created_at, updated_at) values
+insert into `inquiry` (inquiry_id, member_id, title, content, is_secret, created_at, updated_at) values
 	(1, 8, 'Ullam quisquam ullam ea.', 'Nesciunt ipsum id voluptate natus at culpa. At eum ad accusamus fuga non. Illo doloribus ducimus fuga.
 Incidunt ab explicabo. Minus iusto quod ex facere perferendis. Deleniti vitae placeat occaecati.', false, now(), now()),
 	(2, 8, 'Tempora corrupti labore.', 'Neque quibusdam quaerat libero. Dolores reiciendis voluptas. Labore ipsam reiciendis assumenda quae.', false, now(), now()),
@@ -58,7 +58,7 @@ Iste rerum aliquid voluptate possimus. Ab consequuntur voluptate est minus commo
 	(29, 5, 'Minus maiores esse nisi.', 'Tempora corporis aliquid odit. Illo deserunt architecto quas pariatur reiciendis.', false, now(), now()),
 	(30, 8, 'Perspiciatis nulla ipsa aperiam minus animi ut.', 'Aut deserunt eveniet labore aliquam non. Aperiam ab autem veniam assumenda excepturi suscipit. Qui pariatur praesentium pariatur quia. Veniam sunt maxime illo.', true, now(), now());
 
-insert into "inquiry_reply" (inquiry_reply_id, inquiry_id, member_id, content, created_at, updated_at) values
+insert into `inquiry_reply` (inquiry_reply_id, inquiry_id, member_id, content, created_at, updated_at) values
 	(1, 1, 3, 'Excepturi laudantium est ea cumque totam quidem odio. Ipsa praesentium pariatur impedit.', now(), now()),
 	(2, 2, 1, 'Nostrum recusandae nesciunt harum. Iusto quaerat quibusdam vitae ut officiis laboriosam possimus.
 Alias unde minus pariatur. Ipsa voluptatem incidunt quae.', now(), now()),
