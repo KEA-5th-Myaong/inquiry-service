@@ -26,8 +26,7 @@ public class InquiryReply extends BaseEntity {
 	@Column(name = "member_id", nullable = false, updatable = false)
 	private Long memberId;
 
-	@Lob
-	@Column(name = "content", nullable = false, updatable = false)
+	@Column(name = "content", nullable = false, updatable = false, columnDefinition = "text")
 	private String content;
 
 	@Builder

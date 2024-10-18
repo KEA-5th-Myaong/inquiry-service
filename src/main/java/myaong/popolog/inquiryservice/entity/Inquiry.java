@@ -25,8 +25,7 @@ public class Inquiry extends BaseEntity {
 	@Column(name = "title", nullable = false)
 	private String title;
 
-	@Lob
-	@Column(name = "content", nullable = false)
+	@Column(name = "content", nullable = false, columnDefinition = "text")
 	private String content;
 
 	// 비밀글 여부
