@@ -32,7 +32,7 @@ public class AdminInquiryService {
             throw new ApiException(ApiCode.INVALID_DATA, "page 값은 1 이상의 숫자여야 합니다.");
         }
 
-        PageRequest pageRequest = PageRequest.of(page - 1, 3); // 페이지 크기: 3
+        PageRequest pageRequest = PageRequest.of(page - 1, 3); 
         Page<Inquiry> inquiryPage = inquiryRepository.findAll(pageRequest);
 
         // 조회된 문의 데이터 변환
@@ -40,9 +40,9 @@ public class AdminInquiryService {
                 .map(inquiry -> new AdminInquiryResponse.InquirySummary(
                         inquiry.getId(),
                         inquiry.getTitle(),
-                        inquiry.getInquiryReply() != null, // 답변 여부
-                        inquiry.getInquiryReply() != null ? inquiry.getInquiryReply().getMemberId().toString() : null, // 답변자 ID
-                        inquiry.getCreatedAt().toString() // 타임스탬프
+                        inquiry.getInquiryReply() != null,
+                        inquiry.getInquiryReply() != null ? inquiry.getInquiryReply().getMemberId().toString() : null,
+                        inquiry.getCreatedAt().toString()
                 ))
                 .collect(Collectors.toList());
 
@@ -66,7 +66,7 @@ public class AdminInquiryService {
         // 답변 데이터 생성 및 저장
         InquiryReply reply = InquiryReply.builder()
                 .inquiry(inquiry)
-                .memberId(memberId) // 관리자 ID 저장
+                .memberId(memberId)
                 .content(request.getContent())
                 .build();
 

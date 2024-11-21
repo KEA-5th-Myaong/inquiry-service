@@ -89,7 +89,7 @@ public class InquiryService {
                 .memberId(memberId)
                 .title(request.getTitle())
                 .content(request.getContent())
-                .isSecret(false) // 기본값 설정
+                .isSecret(false)
                 .build();
 
         Inquiry savedInquiry = inquiryRepository.save(inquiry);
