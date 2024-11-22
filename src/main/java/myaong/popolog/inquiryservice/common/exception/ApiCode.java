@@ -14,7 +14,7 @@ public enum ApiCode {
 	INTERNAL_SERVER_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "COMMON_5000", "Internal Server Error"),
 	DB_ERROR(HttpStatus.INTERNAL_SERVER_ERROR, "COMMON_5001", "DB Error"),
 
-	INQUIRY_ACCESS_DENIED(HttpStatus.FORBIDDEN, "INQUIRY", "비공개 문의입니다."),
+	INQUIRY_ACCESS_DENIED(HttpStatus.FORBIDDEN, "INQUIRY_4030", "비공개 문의입니다."),
 	INQUIRY_NOT_FOUND(HttpStatus.NOT_FOUND, "INQUIRY_4040", "존재하지 않는 문의입니다."),
 	;
 
