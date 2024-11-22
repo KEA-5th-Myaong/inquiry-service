@@ -61,7 +61,7 @@ public class AdminInquiryService {
     public void respondToInquiry(Long inquiryId, AdminInquiryRequest.RespondInquiry request, Long memberId) {
         // 문의 존재 여부 확인 INQUIRY_4040 예외 발생
         Inquiry inquiry = inquiryRepository.findById(inquiryId)
-                .orElseThrow(() -> new ApiException(ApiCode.INQUIRY_NOT_FOUND, "존재하지 않는 문의입니다."));
+                .orElseThrow(() -> new ApiException(ApiCode.INQUIRY_NOT_FOUND));
 
         // 답변 데이터 생성 및 저장
         InquiryReply reply = InquiryReply.builder()
