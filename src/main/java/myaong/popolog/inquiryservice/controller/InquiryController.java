@@ -17,7 +17,7 @@ public class InquiryController {
 
     private final InquiryService inquiryService;
 
-    @Operation(summary = "API 명세서 v0.5 line 89", description = "문의 목록 조회 (페이징)")
+    @Operation(summary = "API 명세서 v0.4 line 89", description = "문의 목록 조회 (페이징)")
     @GetMapping
     public ResponseEntity<ApiResponse<InquiryResponse.PagedInquiries>> getInquiries(
             @RequestParam(defaultValue = "1") int page,
@@ -27,7 +27,7 @@ public class InquiryController {
         return ResponseEntity.ok(ApiResponse.onSuccess(inquiries));
     }
 
-    @Operation(summary = "API 명세서 v0.5 line 90", description = "문의 상세 조회")
+    @Operation(summary = "API 명세서 v0.4 line 90", description = "문의 상세 조회")
     @GetMapping("/{inquiryId}")
     public ResponseEntity<ApiResponse<InquiryResponse.InquiryDetail>> getInquiryDetail(
             @PathVariable Long inquiryId,
@@ -37,7 +37,7 @@ public class InquiryController {
         return ResponseEntity.ok(ApiResponse.onSuccess(detail));
     }
 
-    @Operation(summary = "API 명세서 v0.5 line 91", description = "문의 작성")
+    @Operation(summary = "API 명세서 v0.4 line 91", description = "문의 작성")
     @PostMapping
     public ResponseEntity<ApiResponse<InquiryResponse.CreatedInquiry>> createInquiry(
             @Valid @RequestBody InquiryRequest.CreateInquiry request,

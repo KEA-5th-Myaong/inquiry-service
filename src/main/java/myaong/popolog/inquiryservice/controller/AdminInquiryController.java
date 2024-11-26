@@ -17,7 +17,7 @@ public class AdminInquiryController {
 
     private final AdminInquiryService adminInquiryService;
 
-    @Operation(summary = "API 명세서 v0.5 line 108", description = "관리자용 문의 목록 조회")
+    @Operation(summary = "API 명세서 v0.4 line 108", description = "관리자용 문의 목록 조회")
     @GetMapping
     public ResponseEntity<ApiResponse<AdminInquiryResponse.PagedInquiries>> getAdminInquiries(
             @RequestParam(defaultValue = "1") int page,
@@ -27,7 +27,7 @@ public class AdminInquiryController {
         return ResponseEntity.ok(ApiResponse.onSuccess(inquiries));
     }
 
-    @Operation(summary = "API 명세서 v0.5 line 109", description = "문의에 대한 답변 작성 및 알림 발송")
+    @Operation(summary = "API 명세서 v0.4 line 109", description = "문의에 대한 답변 작성 및 알림 발송")
     @PutMapping("/{inquiryId}")
     public ResponseEntity<ApiResponse<Void>> respondToInquiry(
             @PathVariable Long inquiryId,
