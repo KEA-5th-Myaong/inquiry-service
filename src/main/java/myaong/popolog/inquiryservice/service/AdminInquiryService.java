@@ -7,6 +7,8 @@ import myaong.popolog.inquiryservice.dto.request.AdminInquiryRequest;
 import myaong.popolog.inquiryservice.dto.response.AdminInquiryResponse;
 import myaong.popolog.inquiryservice.entity.Inquiry;
 import myaong.popolog.inquiryservice.entity.InquiryReply;
+import myaong.popolog.inquiryservice.feign.constant.NotificationType;
+import myaong.popolog.inquiryservice.feign.service.NotificationFeignService;
 import myaong.popolog.inquiryservice.repository.InquiryRepository;
 import myaong.popolog.inquiryservice.repository.InquiryReplyRepository;
 import org.springframework.data.domain.Page;
@@ -23,6 +25,7 @@ public class AdminInquiryService {
 
     private final InquiryRepository inquiryRepository;
     private final InquiryReplyRepository inquiryReplyRepository;
+    private final NotificationFeignService notificationFeignService;
 
     // 관리자용 문의 조회
     @Transactional(readOnly = true)
@@ -72,6 +75,17 @@ public class AdminInquiryService {
 
         inquiryReplyRepository.save(reply);
 
-        // 알림 발송 로직 미구현
+        // 알림 발송 로직 추가
+        sendNotificationForInquiryReply(inquiry, memberId, request.getContent());
+    }
+
+    // 알림 발송 메서드
+    private void sendNotificationForInquiryReply(Inquiry inquiry, Long responderId, String replyContent) {
+
+        String title = "문의에 대한 답변이 등록되었습니다.";
+        String url = "/inquiries/" + inquiry.getId();
+
+        // 알림 전송
+        notificationFeignService.sendNotification(inquiry.getMemberId(), title, replyContent, url, NotificationType.INQUIRY_REPLY, responderId);
     }
 }
