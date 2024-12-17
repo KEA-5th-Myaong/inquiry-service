@@ -35,7 +35,7 @@ public class AdminInquiryService {
             throw new ApiException(ApiCode.INVALID_DATA, "page 값은 1 이상의 숫자여야 합니다.");
         }
 
-        PageRequest pageRequest = PageRequest.of(page - 1, 3); 
+        PageRequest pageRequest = PageRequest.of(page - 1, 10);
         Page<Inquiry> inquiryPage = inquiryRepository.findAll(pageRequest);
 
         // 조회된 문의 데이터 변환
